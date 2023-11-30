@@ -1,4 +1,3 @@
-// import React from 'react'
 import { useRecoilValue } from 'recoil'
 import {
   notStartedTasksSelector,
@@ -8,11 +7,7 @@ import {
 } from '../../TaskSelectors'
 import TaskColumn from './TaskColumn'
 import type { Task, CSSProperties } from '../../../../types'
-import {
-  TASK_PROGRESS_STATUS,
-  // TASK_PROGRESS_ID,
-} from '../../../../constants/app'
-
+import { TASK_PROGRESS_STATUS, TASK_PROGRESS_ID } from '../../../../constants/app'
 
 const TaskProgress = (): JSX.Element => {
   const notStartedTasks: Task[] = useRecoilValue(notStartedTasksSelector)
@@ -27,20 +22,26 @@ const TaskProgress = (): JSX.Element => {
     <div style={styles.container}>
       <h1 style={styles.heading}>Task Progress</h1>
       <div style={styles.taskCategories}>
-      <TaskColumn
+        {/* columnTitle mengambil value dari tiap key dalam TASK_PROGRESS_STATUS */}
+        {/* progressId disesuaikan menurut value dari tiap key TASK_PROGRESS_ID */}
+        <TaskColumn
           columnTitle={TASK_PROGRESS_STATUS.NOT_STARTED}
+          progressId={TASK_PROGRESS_ID.NOT_STARTED}
           tasks={notStartedTasks}
         />
         <TaskColumn
           columnTitle={TASK_PROGRESS_STATUS.IN_PROGRESS}
+          progressId={TASK_PROGRESS_ID.IN_PROGRESS}
           tasks={inProgressTasks}
         />
         <TaskColumn
           columnTitle={TASK_PROGRESS_STATUS.WAITING}
+          progressId={TASK_PROGRESS_ID.WAITING}
           tasks={waitingTasks}
         />
         <TaskColumn
           columnTitle={TASK_PROGRESS_STATUS.COMPLETED}
+          progressId={TASK_PROGRESS_ID.COMPLETED}
           tasks={completedTasks}
         />
       </div>
@@ -63,3 +64,4 @@ const styles: CSSProperties = {
 }
 
 export default TaskProgress
+
