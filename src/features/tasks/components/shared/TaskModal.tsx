@@ -7,7 +7,8 @@ interface TaskModalProps {
   type: string
   setIsModalOpen: Dispatch<SetStateAction<boolean>>
   defaultProgressOrder: number
-  selectedData: Task
+  selectedData: Task 
+  
 }
 
 const TaskModal = ({

@@ -37,6 +37,7 @@ const TaskColumn = ({ columnTitle, tasks }: TaskColumnProps): JSX.Element => {
           type={TASK_MODAL_TYPE.ADD}
           setIsModalOpen={setIsModalOpen}
           defaultProgressOrder={defaultProgress}
+          selectedData={{} as Task}
         />
       )}
       </div>
