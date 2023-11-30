@@ -3,7 +3,7 @@ import TaskCard from './TaskCard'
 import type { Task, CSSProperties } from '../../../../types'
 import { useState } from 'react'
 import TaskModal from '../shared/TaskModal'
-import { TASK_MODAL_TYPE, TASK_PROGRESS_ID } from '../../../../constants/app'
+import { TASK_PROGRESS_ID } from '../../../../constants/app'
 
 interface TaskColumnProps {
   columnTitle: string
@@ -34,7 +34,7 @@ const TaskColumn = ({ columnTitle, tasks }: TaskColumnProps): JSX.Element => {
         {isModalOpen && (
         <TaskModal
           headingTitle="Add your task"
-          type={TASK_MODAL_TYPE.ADD}
+          type="type"
           setIsModalOpen={setIsModalOpen}
           defaultProgressOrder={defaultProgress}
           selectedData={{} as Task}
